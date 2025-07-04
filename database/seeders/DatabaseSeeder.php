@@ -15,5 +15,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(BagistoDatabaseSeeder::class);
+        (new \Webkul\Installer\Database\Seeders\User\DatabaseSeeder)->run([
+            'default_locale' => 'en'
+        ]);
     }
 }

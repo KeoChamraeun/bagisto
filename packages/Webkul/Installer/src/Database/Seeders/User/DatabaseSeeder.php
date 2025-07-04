@@ -12,9 +12,11 @@ class DatabaseSeeder extends Seeder
      * @param  array  $parameters
      * @return void
      */
-    public function run($parameters = [])
+    public function run()
     {
-        $this->call(RolesTableSeeder::class, false, ['parameters' => $parameters]);
-        $this->call(AdminsTableSeeder::class, false, ['parameters' => $parameters]);
+        $parameters = ['default_locale' => 'en']; // or 'km'
+
+        (new RolesTableSeeder)->run($parameters);
+        (new AdminsTableSeeder)->run($parameters);
     }
 }

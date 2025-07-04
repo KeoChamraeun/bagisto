@@ -32,5 +32,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SocialLoginSeeder::class, false, ['parameters' => $parameters]);
         $this->call(ShopSeeder::class, false, ['parameters' => $parameters]);
         $this->call(UserSeeder::class, false, ['parameters' => $parameters]);
+        (new \Webkul\Installer\Database\Seeders\User\AdminsTableSeeder)->run($parameters);
     }
 }

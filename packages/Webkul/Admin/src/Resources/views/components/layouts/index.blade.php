@@ -3,8 +3,7 @@
 <html
     class="{{ request()->cookie('dark_mode') ?? 0 ? 'dark' : '' }}"
     lang="{{ app()->getLocale() }}"
-    dir="{{ core()->getCurrentLocale()->direction }}"
->
+    dir="{{ core()->getCurrentLocale()->direction }}">
 
 <head>
 
@@ -16,25 +15,20 @@
 
     <meta
         http-equiv="X-UA-Compatible"
-        content="IE=edge"
-    >
+        content="IE=edge">
     <meta
         http-equiv="content-language"
-        content="{{ app()->getLocale() }}"
-    >
+        content="{{ app()->getLocale() }}">
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1"
-    >
+        content="width=device-width, initial-scale=1">
     <meta
         name="base-url"
-        content="{{ url()->to('/') }}"
-    >
+        content="{{ url()->to('/') }}">
     <meta
         name="currency"
-        content="{{ core()->getBaseCurrency()->toJson() }}"
-    >
+        content="{{ core()->getBaseCurrency()->toJson() }}">
 
     @stack('meta')
 
@@ -42,40 +36,37 @@
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    />
+        rel="stylesheet" />
 
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
-        rel="stylesheet"
-    />
+        rel="stylesheet" />
 
     <link
         rel="preload"
         as="image"
-        href="{{ url('cache/logo/bagisto.png') }}"
-    >
+        href="{{ url('cache/logo/bagisto.png') }}">
 
     @if ($favicon = core()->getConfigData('general.design.admin_logo.favicon'))
-        <link
-            type="image/x-icon"
-            href="{{ Storage::url($favicon) }}"
-            rel="shortcut icon"
-            sizes="16x16"
-        >
+    <link
+        type="image/x-icon"
+        href="{{ Storage::url($favicon) }}"
+        rel="shortcut icon"
+        sizes="16x16">
     @else
-        <link
-            type="image/x-icon"
-            href="{{ bagisto_asset('images/favicon.ico') }}"
-            rel="shortcut icon"
-            sizes="16x16"
-        />
+    <link
+        type="image/x-icon"
+        href="{{ bagisto_asset('images/favicon.ico') }}"
+        rel="shortcut icon"
+        sizes="16x16" />
     @endif
 
     @stack('styles')
 
     <style>
-        {!! core()->getConfigData('general.content.custom_scripts.custom_css') !!}
+        {
+            ! ! core()->getConfigData('general.content.custom_scripts.custom_css') ! !
+        }
     </style>
 
     {!! view_render_event('bagisto.admin.layout.head.after') !!}
@@ -86,8 +77,7 @@
 
     <div
         id="app"
-        class="h-full"
-    >
+        class="h-full">
         <!-- Flash Message Blade Component -->
         <x-admin::flash-group />
 
@@ -101,8 +91,7 @@
 
         <div
             class="group/container {{ request()->cookie('sidebar_collapsed') ?? 0 ? 'sidebar-collapsed' : 'sidebar-not-collapsed' }} flex gap-4"
-            ref="appLayout"
-        >
+            ref="appLayout">
             <!-- Page Sidebar Blade Component -->
             <x-admin::layouts.sidebar />
 
@@ -111,7 +100,7 @@
                 <div class="px-4 pb-6">
                     <!-- Todo @suraj-webkul need to optimize below statement. -->
                     @if (! request()->routeIs('admin.configuration.index'))
-                        <x-admin::layouts.tabs />
+                    <x-admin::layouts.tabs />
                     @endif
 
                     <!-- Page Content Blade Component -->
@@ -121,10 +110,8 @@
                 <!-- Powered By -->
                 <div class="mt-auto">
                     <div class="border-t bg-white py-2 text-center text-sm dark:border-gray-800 dark:bg-gray-900 dark:text-white">
-                        @lang('admin::app.components.layouts.powered-by.description', [
-                            'bagisto' => '<a class="text-blue-600 hover:underline dark:text-darkBlue" href="https://bagisto.com/en/">Bagisto</a>',
-                            'webkul' => '<a class="text-blue-600 hover:underline dark:text-darkBlue" href="https://webkul.com/">Webkul</a>',
-                        ])
+                        <h3>Keo Chamraeun</h3>
+
                     </div>
                 </div>
             </div>
